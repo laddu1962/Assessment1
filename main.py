@@ -1,4 +1,4 @@
-# reclima la criatura
+# recuperar la criatura = reclaim the creature
 
 # elements that I want in my text adventure game
 
