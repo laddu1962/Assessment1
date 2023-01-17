@@ -1,4 +1,5 @@
 # recuperar la criatura = reclaim the creature
+player_class = 0
 
 print("""WAKE UP! WAKE UP! WAKE UP!
          You've been asleep for long enough!
@@ -6,8 +7,46 @@ print("""WAKE UP! WAKE UP! WAKE UP!
          We have a lot of questions to ask!
          If you want to see your friend again, you're going to answer me.
          
-         How did you break into Area 51..?""")
-print("*The screen fade")
+         How did you break into Area 51?
+         
+         The screen fades to black...""")
+
+print("""You wake up in a dark room with three bodies on the floor;
+         The bodies:
+         1. solider 
+         2. agent 
+         3. scientist
+         You have to chose one so you can transform into them,
+         meaning you will become on of those humans, each which hold a different 
+         rank. 
+         
+         Your mission is to infiltrate the humans base and reclaim our fellow,
+         from their prison. You do this by becoming on of them. They won't see 
+         it coming!""")
+
+choice = int(input("Which human are you going to choose, type the number? "))
+
+if choice == 1:
+    player_class = 1
+elif choice == 2:
+    player_class = 2
+elif choice == 3:
+    player_class = 3
+else:
+    print("not valid")
+
+def class_selection(x):
+    if x == 1:
+        print("You have selected solider")
+    elif x == 2:
+        print("You have selected the agent")
+    elif x == 3:
+        print("You have selected the scientist")
+
+if player_class != 0:
+    class_selection(player_class)
+
+
 
 
 # safe cracker
@@ -62,44 +101,3 @@ if "tentacle sweeper" in choice:
 elif "knife" or "dagger" in choice:
     print("the weapon is weak, the monster killed you!")
 
-# password
-password = "0174"
-usrAttempts = 3
-
-
-while usrAttempts > 0:
-    guess = input("type password")
-    if guess == password:
-        print("door opened")
-        break
-    usrAttempts -= 1
-else:
-    print("not attempts left")
-
-
-# exercise 5
-tarot = { 1: "The Magician", 2: "The High Priestess", 3: "The Empress", 4: "TheEmperor", 5: "The Hierophant", 6: "The Lovers", 7: "The Chariot",
-          8: "Strength", 9: "The Hermit", 10: "Wheel of Fortune", 11: "Justice", 12: "The Hanged Man", 13: "Death",
-          14: "Temperance", 15: "The Devil", 16: "The Tower", 17: "The Star", 18: "The Moon", 19: "The Sun",
-          20: "Judgement", 21: "The World", 22: "The Fool"}
-
-fortune = {}
-
-fortune["past"] = tarot.pop(13)
-fortune["present"] = tarot.pop(22)
-fortune["future"] = tarot.pop(10)
-
-for k, val in fortune.items():
-    print("your", k, "is the", val, "card")
-
-import  random
-
-fortune = {"past": "", "present": "", "future": ""}
-
-for key in fortune.keys():
-    remaining_cards = list(tarot.keys())
-    choice = remaining_cards[random.randint(0, len(remaining_cards)-1)]
-    fortune[key] = tarot.pop(choice)
-
-for key, value in fortune.items():
-    print("Your {} is the {} card." .format(key, value))
