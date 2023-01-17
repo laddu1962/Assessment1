@@ -13,7 +13,7 @@ print("""WAKE UP! WAKE UP! WAKE UP!
 
 print("""You wake up in a dark room with three bodies on the floor;
          The bodies:
-         1. solider 
+         1. soldier 
          2. agent 
          3. scientist
          You have to chose one so you can transform into them,
@@ -26,6 +26,7 @@ print("""You wake up in a dark room with three bodies on the floor;
 
 choice = int(input("Which human are you going to choose, type the number? "))
 
+# the character selection for the player
 if choice == 1:
     player_class = 1
 elif choice == 2:
@@ -35,9 +36,10 @@ elif choice == 3:
 else:
     print("not valid")
 
+# telling the player which character they choose
 def class_selection(x):
     if x == 1:
-        print("You have selected solider")
+        print("You have selected soldier")
     elif x == 2:
         print("You have selected the agent")
     elif x == 3:
@@ -46,6 +48,55 @@ def class_selection(x):
 if player_class != 0:
     class_selection(player_class)
 
+
+print("""Now that's out of the way, make your way
+             to Area 51, reclaim our fellow. 
+             
+             You make your way to the human base,
+             in a box created by them, which they call a 'car'
+             
+             You reach the gate of Area 51, and the soldier at the 
+             gate ask you a riddle..""")
+
+# riddles with 3 attempts
+answer = "war"
+usrAttempts = 3
+
+if choice == 1:
+  while usrAttempts > 0:
+    guess = input("Soldier fight it but never changes?")
+    if guess == answer:
+        print("gate opened")
+        break
+    usrAttempts -= 1
+  else:
+    print("not attempts left")
+
+answer = "newspaper"
+usrAttempts = 3
+
+if choice == 2:
+  while usrAttempts > 0:
+    guess = input("What is black, white and read all over?")
+    if guess == answer:
+        print("gate opened")
+        break
+    usrAttempts -= 1
+  else:
+    print("not attempts left")
+
+answer = "ice"
+usrAttempts = 3
+
+if choice == 3:
+  while usrAttempts > 0:
+    guess = input("How do you spell hard water with three letters?")
+    if guess == answer:
+        print("gate opened")
+        break
+    usrAttempts -= 1
+  else:
+    print("not attempts left")
 
 
 
