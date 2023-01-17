@@ -1,6 +1,12 @@
 # recuperar la criatura = reclaim the creature
 
-# elements that I want in my text adventure game
+print("""WAKE UP! WAKE UP! WAKE UP!
+         You've been asleep for long enough!
+         
+         We hae a lot of questions to ask!
+         If you want to see your friend again, you're going to answer me.
+         
+         How did you break into Area 51...?""")
 
 # safe cracker
 import random
