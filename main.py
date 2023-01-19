@@ -1,6 +1,6 @@
 # recuperar la criatura = reclaim the creature
 player_class = 0
-
+inventory = 0
 print("""
 WAKE UP! WAKE UP! WAKE UP!
          You've been asleep for long enough!
@@ -138,6 +138,50 @@ while codes_cracked < len(safe_code):
 else:
     print("You have opened the door")
 
+print("""
+You have entered the main building.
+You can go right or left...
+""")
 
+
+answer = input("Where do want to go?  ")
+
+if answer == 'right':
+    print("""To your right is the laboratory,
+    but the door is locked. The only thing left on the 
+    right is an equipment locker.""")
+    answer2 = input("Do you want to inspect the equipment room? ")
+
+elif answer == 'left':
+    print("""To your left is the testing room, however,
+    there are two soldiers guarding the door.
+    """)
+    answer3 = input("Do you want to proceed left to the testing room? ")
+
+if answer == "right" and answer2 == "yes":
+    print("""You open the equiment locker. Within the locker is:
+    a hazmat suit, keys, a taser, plasma gun, vest, a hard drive
+    """)
+    answer4 = input("You can take two items... state the two ")
+
+    pocket = {'hazmat': 1, 'keys': 2, 'plasma gun': 3, 'vest': 4}
+
+    for k, val, in pocket.itmes():
+        print("You have picked up", k, "it has" val, "damage")
+
+
+        inventory = inventory + pocket.pop(input())
+
+
+elif answer == "test" and answer3 == "yes":
+    print("The switch turned on the power to the room")
+    print("The machines in the room are turning on")
+    print("All the windows in the room open")
+    answer5 = input("do you want to explore the testing room further? ")
+
+if answer2 == "yes" and answer4 == "yes":
+    print("The underground room is filled with big pods")
+    print("Pods that looks like hibernation pods")
+    answer6 = input("do you want to look inside...?")
 
 
