@@ -3,25 +3,25 @@ player_class = 0
 inventory = 0
 print("""
 WAKE UP! WAKE UP! WAKE UP!
-         You've been asleep for long enough!
-         We have a lot of questions to ask!
-         If you want to see your friend again, you're going to answer me.
-         How did you break into Area 51?
+You've been asleep for long enough!
+We have a lot of questions to ask!
+If you want to see your friend again, you're going to answer me.
+How did you break into Area 51?
          
-         The screen fades to black...
+The screen fades to black...
          
-         You wake up in a dark room with three bodies on the floor;
-         The bodies:
-         1. soldier 
-         2. agent 
-         3. scientist
-         You have to chose one so you can transform into them,
-         meaning you will become on of those humans, each which hold a 
-         different rank. 
+You wake up in a dark room with three bodies on the floor;
+The bodies:
+1. soldier 
+2. agent 
+3. scientist
+You have to chose one so you can transform into them,
+meaning you will become on of those humans, each which hold a 
+different rank. 
          
-         Your mission is to infiltrate the humans base and reclaim our fellow,
-         from their prison. You do this by becoming on of them. They won't see 
-         it coming!
+Your mission is to infiltrate the humans base and reclaim our fellow,
+from their prison. You do this by becoming on of them. They won't see 
+it coming!
          """)
 
 
@@ -143,6 +143,10 @@ You have entered the main building.
 You can go right or left...
 """)
 
+pocket = {'hazmat': 1, 'keys': 2, 'plasma gun': 3, 'vest': 4}
+
+for k, val, in pocket.itmes(x):
+    print("You have picked up", k, "it has", val, "damage")
 
 answer = input("Where do want to go?  ")
 
@@ -163,15 +167,6 @@ if answer == "right" and answer2 == "yes":
     a hazmat suit, keys, a taser, plasma gun, vest, a hard drive
     """)
     answer4 = input("You can take two items... state the two ")
-
-    pocket = {'hazmat': 1, 'keys': 2, 'plasma gun': 3, 'vest': 4}
-
-    for k, val, in pocket.itmes():
-        print("You have picked up", k, "it has" val, "damage")
-
-
-        inventory = inventory + pocket.pop(input())
-
 
 elif answer == "test" and answer3 == "yes":
     print("The switch turned on the power to the room")
