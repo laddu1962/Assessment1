@@ -1,7 +1,8 @@
 # recuperar la criatura = reclaim the creature
 player_class = 0
-inventory = 0
-print("""
+inventory = []
+
+start = print("""
 WAKE UP! WAKE UP! WAKE UP!
 You've been asleep for long enough!
 We have a lot of questions to ask!
@@ -143,11 +144,6 @@ You have entered the main building.
 You can go right or left...
 """)
 
-pocket = {'hazmat': 1, 'keys': 2, 'plasma gun': 3, 'vest': 4}
-
-for k, val, in pocket.itmes(x):
-    print("You have picked up", k, "it has", val, "damage")
-
 answer = input("Where do want to go?  ")
 
 if answer == 'right':
@@ -166,17 +162,30 @@ if answer == "right" and answer2 == "yes":
     print("""You open the equiment locker. Within the locker is:
     a hazmat suit, keys, a taser, plasma gun, vest, a hard drive
     """)
-    answer4 = input("You can take two items... state the two ")
+    length = 2
 
-elif answer == "test" and answer3 == "yes":
-    print("The switch turned on the power to the room")
-    print("The machines in the room are turning on")
-    print("All the windows in the room open")
-    answer5 = input("do you want to explore the testing room further? ")
+    for idx in range(length):
+        item = input("You can take two items... state the two? ")
+        inventory.append(item)
 
-if answer2 == "yes" and answer4 == "yes":
-    print("The underground room is filled with big pods")
-    print("Pods that looks like hibernation pods")
-    answer6 = input("do you want to look inside...?")
+    pockets = print(inventory)
 
+elif answer == "left" and answer3 == "yes":
+    print("""You have to appproach to guards. You have to be very cautious
+    with your actions and words, as your cover could be easily blown!
+    
+    Do you wish to
+    option 1: approach to the guard first
+    option 2: walk straight into the room
+    """)
+    answer5 = int(input("which option do you choose?"))
+
+if answer5 == 1:
+    print("The guards just say hello and open the door for you.")
+
+elif answer5 == 2:
+    print("The guards ask you stop and ask you why you didn't approach them first."
+          "As it is there job to open the door for you? "
+          "Guard: 'Why are you not follwing protocal?'")
+    print(start)
 
