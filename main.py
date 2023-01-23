@@ -192,5 +192,22 @@ As it is there job to open the door for you?
 
 Guard: 'Why are you not following protocol?'""")
 
+inventory =["ID","Wallet","Keys","Pen"]
 
+print("You to divert attention from the guards, check you pockets")
+print(inventory)
+
+choice = input("chose an item ").lower()
+
+if choice not in inventory:
+    print("You don't have that! ")
+    exit()
+
+else:print("you reach down and pull your % from your pocket" % choice)
+
+if "ID" in choice:
+    print("guard: Alright you can go through")
+
+elif "knife" or "dagger" in choice:
+    print("Why are you showing us this?! ")
 
