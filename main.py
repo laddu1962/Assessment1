@@ -153,7 +153,7 @@ if answer == 'right':
     answer2 = input("Do you want to inspect the equipment room? ")
 
 elif answer == 'left':
-    print("""To your left is the testing room, however,
+    print("""To your left is the testing room 1604, however,
     there are two soldiers guarding the door.
     """)
     answer3 = input("Do you want to proceed left to the testing room? ")
@@ -198,16 +198,76 @@ print("You to divert attention from the guards, check you pockets")
 print(inventory)
 
 choice = input("chose an item ").lower()
-
-if choice not in inventory:
-    print("You don't have that! ")
-    exit()
-
-else:print("you reach down and pull your % from your pocket" % choice)
-
-if "ID" in choice:
+if "id" in choice:
     print("guard: Alright you can go through")
 
-elif "knife" or "dagger" in choice:
+elif "wallet" or "keys" or "pen" in choice:
     print("Why are you showing us this?! ")
+
+print("You have entered the testing room 1604")
+
+print("""
+The testing room is filled with all sorts equipment.
+In the room is a chair, table and a safe.
+Also ahead of you is another room which has a sign
+that says 'OPS' """)
+
+answer = input("Do you want to inpsect anything in the room? ")
+
+if answer == 'yes':
+    print("""There are only a few things in the testing is an 
+    empty table, chair and a safe.""")
+    answer2 = input("Do you want to inspect the safe? ")
+
+elif answer == 'no':
+    print("""The only place left to go is the OPS room.
+    Do you wish to proceed?
+    """)
+    answer3 = input("Do you want to proceed the OPS room? ")
+
+if answer == "yes" and answer2 == "yes":
+    print("""You are looking at the safe, it is a 4 digit safe,
+    take some good guess or try to remember any 4 digit number 
+    that you've seen.
+    """)
+
+    password = "1604"
+    usrAttempts = 3
+
+    while usrAttempts > 0:
+        guess = input("type password")
+        if guess == password:
+            print("safe opened")
+            break
+        usrAttempts -= 1
+    else:
+        print("not attempts left")
+
+
+elif answer == "no" and answer3 == "yes":
+    print("""You walk to the door and unlock it to find a
+    guard standing there.  
+    
+    Guard: How many guards were standing at the door before 
+    Do you wish to""")
+
+    answer5 = input("which option do you choose?")
+
+if answer5 == "2":
+    print("""I'm just teasing you, ofcourse if it is!
+    Moppy and Bucket are inseparable, always on duty 
+    together. 
+    
+    Sorry for wasting your time, have a good day sir"""
+          )
+
+elif answer5 == "1":
+    print("""Are you sure, I was just teasing! I'm sure I saw 
+    Moppy and Bucket guarding the door this morning.
+    
+    You probabily have a lot on your mind, sorry for wasting.
+    Please go through.
+    """)
+
+
 
