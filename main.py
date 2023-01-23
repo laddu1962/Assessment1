@@ -159,7 +159,7 @@ elif answer == 'left':
     answer3 = input("Do you want to proceed left to the testing room? ")
 
 if answer == "right" and answer2 == "yes":
-    print("""You open the equiment locker. Within the locker is:
+    print("""You open the equipment locker. Within the locker is:
     a hazmat suit, keys, a taser, plasma gun, vest, a hard drive
     """)
     length = 2
@@ -170,6 +170,7 @@ if answer == "right" and answer2 == "yes":
 
     pockets = print(inventory)
 
+
 elif answer == "left" and answer3 == "yes":
     print("""You have to appproach to guards. You have to be very cautious
     with your actions and words, as your cover could be easily blown!
@@ -178,14 +179,18 @@ elif answer == "left" and answer3 == "yes":
     option 1: approach to the guard first
     option 2: walk straight into the room
     """)
-    answer5 = int(input("which option do you choose?"))
+    answer5 = input("which option do you choose?")
 
-if answer5 == 1:
+if answer5 == "option 1":
     print("The guards just say hello and open the door for you.")
 
-elif answer5 == 2:
-    print("The guards ask you stop and ask you why you didn't approach them first."
-          "As it is there job to open the door for you? "
-          "Guard: 'Why are you not follwing protocal?'")
-    print(start)
+elif answer5 == "option 2":
+    print("""
+The guards ask you stop and ask you why 
+you didn't approach them first.
+As it is there job to open the door for you?
+
+Guard: 'Why are you not following protocol?'""")
+
+
 
