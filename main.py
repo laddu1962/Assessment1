@@ -269,5 +269,55 @@ elif answer5 == "1":
     Please go through.
     """)
 
+OPS = print("""
+You are in the OPS room, this room is filled with all sorts of mysterious 
+things! Of all the things that could be in a room it was was other aliens,
+but all of them in incubators, kept alive by machines. With no signs to 
+show if any of them were alive. 
+
+The room is filled with all sorts of machines and a spot in the room in 
+the corner for cutting them open. You should look around to see if your 
+fellow is in one of these incubators!  
+
+There are 5 incubators and you should search all of them! You never know
+what could be in any one of them. 
+""")
+
+class Enemy:
+
+    weapons = {"dagger": 5, "sword": 10, "lightsaber": 15}
+
+    names = ["Biycuya", "Semboon", "keyskay", "Izen"]
+    homelands = ["Mars", "Skyland", "Neenee", "RedHill"]
+    ability = ["Time Travel", "The power of the sun", "Regeneration", "Reality Manipulation"]
+
+    def __init__(self, name, homeland, ability):
+        self.name = name
+        self.homeland = homeland
+        self.ability = ability
+
+    def Set_Bio(self, bio):
+        if not isinstance(bio, str):
+            print("bio must be a string")
+            return
+        self.bio = bio
+
+    def Get_Bio(self):
+        return self.bio
+
+    def GetRandomWeapon(self):
+        self.weapon = random.choice(list(Enemy.weapons.items()))
+
+for i in range(4):
+    name = Enemy.names[i]
+    homeland = random.choice(Enemy.homelands)
+    ability = random.choice(Enemy.ability)
+    enemy = Enemy(name, homeland, ability)
+    enemy.GetRandomWeapon()
+    print("{} is from {} with the ability of {}".format(name, homeland, ability))
+
+
+print(vars(enemy))
+
 
 
