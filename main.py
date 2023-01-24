@@ -251,7 +251,7 @@ elif answer == "no" and answer3 == "yes":
     Guard: How many guards were standing at the door before 
     Do you wish to""")
 
-    answer5 = input("which option do you choose?")
+    answer5 = input("type the number? ")
 
 if answer5 == "2":
     print("""I'm just teasing you, ofcourse if it is!
@@ -314,10 +314,15 @@ for i in range(4):
     ability = random.choice(Enemy.ability)
     enemy = Enemy(name, homeland, ability)
     enemy.GetRandomWeapon()
+
+    print("""
+    There's a computer in front of you which could have all the information about the
+    being on there. DO you wish to use the computer?""")
+
     print("{} is from {} with the ability of {}".format(name, homeland, ability))
 
 
-print(vars(enemy))
+#print(vars(enemy))
 
 
 
