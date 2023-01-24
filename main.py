@@ -317,8 +317,10 @@ for i in range(4):
 
     print("""
     There's a computer in front of you which could have all the information about the
-    being on there. DO you wish to use the computer?""")
+    being on there.""")
+    first = input("Do you wish to use the computer?")
 
+if first == "yes":
     print("{} is from {} with the ability of {}".format(name, homeland, ability))
 
 
