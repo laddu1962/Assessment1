@@ -1,6 +1,7 @@
 # recuperar la criatura = reclaim the creature
 player_class = 0
 inventory = []
+inventory1 =["ID","Wallet","Keys","Pen"]
 
 start = print("""
 WAKE UP! WAKE UP! WAKE UP!
@@ -178,30 +179,24 @@ elif answer == "left" and answer3 == "yes":
     option 1: approach to the guard first
     option 2: walk straight into the room
     """)
-    answer5 = input("which option do you choose?")
+answer5 = input("which option do you choose?")
 
 if answer5 == "option 1":
     print("The guards just say hello and open the door for you.")
 
 elif answer5 == "option 2":
-    print("""
-The guards ask you stop and ask you why 
-you didn't approach them first.
-As it is there job to open the door for you?
-
-Guard: 'Why are you not following protocol?'""")
-
-inventory =["ID","Wallet","Keys","Pen"]
-
-print("You to divert attention from the guards, check you pockets")
-print(inventory)
-
-choice = input("chose an item ").lower()
-if "id" in choice:
-    print("guard: Alright you can go through")
-
-elif "wallet" or "keys" or "pen" in choice:
-    print("Why are you showing us this?! ")
+        print("""
+    The guards ask you stop and ask you why 
+    you didn't approach them first.
+    As it is there job to open the door for you?
+    Guard: 'Why are you not following protocol?'""")
+        print("You to divert attention from the guards, check you pockets")
+        print(inventory1)
+        choice = input("chose an item ").lower()
+        if choice == "id":
+            print("guard: Alright you can go through")
+        elif "wallet" or "keys" or "pen" in choice:
+             print("Why are you showing us this?! ")
 
 print("You have entered the testing room 1604")
 
