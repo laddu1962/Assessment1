@@ -170,7 +170,6 @@ if answer == "right" and answer2 == "yes":
 
     pockets = print(inventory)
 
-
 elif answer == "left" and answer3 == "yes":
     print("""You have to appproach to guards. You have to be very cautious
     with your actions and words, as your cover could be easily blown!
@@ -283,6 +282,8 @@ There are 5 incubators and you should search all of them! You never know
 what could be in any one of them. 
 """)
 
+
+
 class Enemy:
 
     weapons = {"dagger": 5, "sword": 10, "lightsaber": 15}
@@ -290,6 +291,14 @@ class Enemy:
     names = ["Biycuya", "Semboon", "keyskay", "Izen"]
     homelands = ["Mars", "Skyland", "Neenee", "RedHill"]
     ability = ["Time Travel", "The power of the sun", "Regeneration", "Reality Manipulation"]
+
+    print("""
+        There's a computer in front of you which could have all the information about the
+        being on there.""")
+    first = input("Do you wish to use the computer?")
+
+
+if first == "yes":
 
     def __init__(self, name, homeland, ability):
         self.name = name
@@ -315,12 +324,6 @@ for i in range(4):
     enemy = Enemy(name, homeland, ability)
     enemy.GetRandomWeapon()
 
-    print("""
-    There's a computer in front of you which could have all the information about the
-    being on there.""")
-    first = input("Do you wish to use the computer?")
-
-if first == "yes":
     print("{} is from {} with the ability of {}".format(name, homeland, ability))
 
 
