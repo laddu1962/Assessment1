@@ -319,5 +319,19 @@ for i in range(4):
     print("{} is from {} with the ability of {}".format(name, homeland, ability))
 #print(vars(enemy))
 
+print("""
+The one you're looking isn't here!
+The only thing left to do now is to capture a human as we can access their 
+memories... 
+
+As you were searching the incubators a scientist comes in.
+
+This is the perfect chance to take a humand and use them to your advantage.""")
+
+#fight with the alien but this time might fight!
+
+
+
+
 
 
