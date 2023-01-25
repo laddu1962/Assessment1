@@ -296,10 +296,7 @@ class Enemy:
         There's a computer in front of you which could have all the information about the
         being on there.""")
     first = input("Do you wish to use the computer?")
-
-
-if first == "yes":
-
+#if first == "yes":
     def __init__(self, name, homeland, ability):
         self.name = name
         self.homeland = homeland
@@ -325,8 +322,6 @@ for i in range(4):
     enemy.GetRandomWeapon()
 
     print("{} is from {} with the ability of {}".format(name, homeland, ability))
-
-
 #print(vars(enemy))
 
 
