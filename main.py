@@ -312,11 +312,36 @@ memories...
 
 As you were searching the incubators a scientist comes in.
 
-This is the perfect chance to take a humand and use them to your advantage.""")
+This is the perfect chance to take a human and use them to your advantage.
 
-#fight with the alien but this time might fight!
+You approach the scientist and knock him out!""")
 
-print()
+def scene8_b1():
+    print("""You can access a human's memories but they will fight back and 
+the way they do it differs from species to species. 
+
+In this species you have solve the anagram...""")
+
+    answer = "carbon"
+    usrAttempts = 3
+
+    while usrAttempts > 0:
+        guess = input("Decipher 'barcon':  ")
+        if guess == answer:
+            print("That's one barrier!")
+            break
+        usrAttempts -= 1
+    else:
+        print("Hint: It's an element")
+        print(scene8())
+
+
+def scene8_b2():
+
+
+
+
+print(scene8())
 
 
 
