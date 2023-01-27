@@ -2,6 +2,7 @@
 player_class = 0
 inventory = []
 inventory1 =["ID","Wallet","Keys","Pen"]
+inventory2 = ["hazmat suit", "keys", "taser", "plasma gun", "vest", "hard drive"]
 
 def scene1():
     start = print("""
@@ -152,14 +153,16 @@ right is an equipment locker.""")
     if answer == 'yes':
         print("""You open the equipment locker. Within the locker is:
 a hazmat suit, keys, a taser, plasma gun, vest, a hard drive
+
+you can choose ONE item!
             """)
-        length = 2
+        length = 1
         for idx in range(length):
-            item = input("You can take two items... state the two? ")
+            item = input("What item do you want to take?  ")
             inventory.append(item)
 
         pockets = print(inventory)
-    print("Now the only you can go is left.")
+    print("Now the only way you can go is left.")
 
 
 def scene4_left():
@@ -188,6 +191,7 @@ Guard: 'Why are you not following protocol?'""")
                 print("guard: Alright you can go through")
         elif "wallet" or "keys" or "pen" in choice:
                 print("Why are you showing us this?! ")
+                print("It's fine don't walk right in next time!")
 
     print("You have entered the testing room 1604")
 
@@ -335,13 +339,20 @@ In this species you have solve the anagram...""")
         print("Hint: It's an element")
         print(scene8())
 
+inventory2 = 0
+
 
 def scene8_b2():
+    print("you are about to fight")
+
+    if "taser" or "plasma gun" in inventory:
+        print()
 
 
 
 
-print(scene8())
+
+scene4_right()
 
 
 
