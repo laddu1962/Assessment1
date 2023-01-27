@@ -346,13 +346,16 @@ def scene8_b2():
     print("you are about to fight")
 
     if "taser" or "plasma gun" in inventory:
-        print()
+        print("you have a chance")
+    elif "hard drive" or "keys" or "vest" or "hazmat suit" in inventory:
+        print("you don't have a weapon!")
 
 
 
 
 
 scene4_right()
+scene8_b2()
 
 
 
