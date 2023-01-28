@@ -50,6 +50,7 @@ it coming!
             print("You have selected the scientist")
     if player_class != 0:
         class_selection(player_class)
+    scene2()
 
 
 def scene2():
@@ -99,7 +100,7 @@ gate ask you a riddle..
             usrAttempts -= 1
         else:
             print("he's waking up put him back under")
-
+    scene3()
 
 def scene3():
     print("""
@@ -144,6 +145,10 @@ You have entered the main building.
 You can go right or left...
 """)
     answer = input("Where do want to go?  ")
+    if answer == "right":
+        scene4_right()
+    elif answer == "left":
+        scene4_left()
 
 
 def scene4_right():
@@ -173,7 +178,9 @@ you can choose ONE item!
             inventory_items.append("hard drive")
 
         pockets = print(inventory_items and inventory_weapons)
-    print("Now the only way you can go is left.")
+    print("""Now the only way you can go is left.
+    You turn around and start walking...""")
+    scene4_left()
 
 
 def scene4_left():
@@ -189,6 +196,7 @@ option 2: walk straight into the room
 
     if answer == "option 1":
         print("The guards just say hello and open the door for you.")
+        scene5()
 
     elif answer == "option 2":
         print("""
@@ -204,12 +212,12 @@ Guard: 'Why are you not following protocol?'""")
         elif "wallet" or "keys" or "pen" in choice:
                 print("Why are you showing us this?! ")
                 print("It's fine don't walk right in next time!")
-
-    print("You have entered the testing room 1604")
+        scene5()
 
 
 def scene5():
     print("""
+You have entered the testing room 1604
 The testing room is filled with all sorts equipment.
 In the room is a chair, table and a safe.
 Also ahead of you is another room which has a sign
@@ -223,10 +231,8 @@ empty table, chair and a safe.""")
         answer2 = input("Do you want to inspect the safe? ")
 
     elif answer == 'no':
-        print("""The only place left to go is the OPS room.
-Do you wish to proceed?
-    """)
-        answer3 = input("Do you want to proceed the OPS room? ")
+        print("""The only place left to go is the OPS room. """)
+        scene6()
 
     if answer == "yes" and answer2 == "yes":
         print("""You are looking at the safe, it is a 4 digit safe,
@@ -259,6 +265,8 @@ that you've seen.
                 elif item == "6":
                     inventory_items.append("laser pen")
                 break
+                print("Now that done, the only place left to go is the OPS room")
+                scene6()
             usrAttempts -= 1
         else:
             print("not attempts left")
@@ -286,6 +294,7 @@ Moppy and Bucket guarding the door this morning.
 You probabily have a lot on your mind, sorry for wasting.
 Please go through.
     """)
+    scene7()
 
 
 def scene7():
@@ -368,7 +377,7 @@ In this species you have solve the anagram...""")
         usrAttempts -= 1
     else:
         print("Hint: It's an element")
-        print(scene8())
+    scene8_b2()
 
 
 def scene8_b2():
@@ -381,7 +390,7 @@ I item you choose wil determine if can access their memories.""")
           "As the items you collected from the pyhsical world can be replicaed in the mind, in order to fight")
     print(inventory)
     choice = input("choose a weapon! ").lower()
-    if choice not in inventory:
+    if choice not in inventory_weapons:
         print("dead")
         exit()
     else:
@@ -390,17 +399,32 @@ I item you choose wil determine if can access their memories.""")
         scene8_b3()
     elif "hazmat suit" or "keys" or "vest" or "hard drive" or "riot shield" or "general's mug" in choice:
         print("""
-        the weapon is weak, the monster killed you!""")
+        you don't have the right items to help you defeat his mind!
+        
+        
+            YOU'RE DEAD!""")
 
 
 def scene8_b3():
     print("""
         you have picked the right weapon
+        This gives you an advantage while you are in their mind and there
         
-        This means that you have weapon that can be used to """)
+        You have successfully accessed their memories. As you look through their 
+        memories you try to find your fellow but there seems to be nothing about him!
+        
+        You wake up...You are in some sort of lab with scientists and agents around you.
+        An agent approach you and say 'Thank you!' 
+        
+        Agent Castle: 'You never broke into area 51 and you don't have fellow captured here.
+        You are the one that's captured, we simply wanted to know how your species would break
+        into area 51 so we could take the necessary precautions to prevent it!'
+        
+        Major Ray:'Let's make one thing clear you will never escape area 51 nor will I allow
+        anyone to break you out!'""")
 
-scene4_right()
-scene8_b2()
+
+scene1()
 
 
 
