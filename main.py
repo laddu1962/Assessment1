@@ -1,8 +1,10 @@
 # recuperar la criatura = reclaim the creature
 player_class = 0
-inventory = []
+inventory_weapons = []
+inventory_items = []
 inventory1 =["ID","Wallet","Keys","Pen"]
-inventory2 = ["hazmat suit", "keys", "taser", "plasma gun", "vest", "hard drive"]
+
+
 
 def scene1():
     start = print("""
@@ -127,7 +129,6 @@ You have to solve 3 questions in order to enter the main building!
                     print("correct")
                     codes_cracked += 1
 
-
             except ValueError:
                 print("That is not the number")
                 break;
@@ -144,6 +145,7 @@ You can go right or left...
 """)
     answer = input("Where do want to go?  ")
 
+
 def scene4_right():
     print("""To your right is the laboratory,
 but the door is locked. The only thing left on the 
@@ -158,19 +160,19 @@ you can choose ONE item!
             """)
         item = input("type a number>>  ")
         if item == "1":
-            inventory.append("hazmat suit")
+            inventory_items.append("hazmat suit")
         elif item == "2":
-            inventory.append("keys")
+            inventory_items.append("keys")
         elif item == "3":
-            inventory.append("taser")
+            inventory_weapons.append("taser")
         elif item == "4":
-            inventory.append("plasma gun")
+            inventory_weapons.append("plasma gun")
         elif item == "5":
-            inventory.append("vest")
+            inventory_items.append("vest")
         elif item == "6":
-            inventory.append("hard drive")
+            inventory_items.append("hard drive")
 
-        pockets = print(inventory)
+        pockets = print(inventory_items and inventory_weapons)
     print("Now the only way you can go is left.")
 
 
@@ -238,26 +240,25 @@ that you've seen.
         while usrAttempts > 0:
             guess = input("type password")
             if guess == password:
-                print("safe opened")
-                break
                 print("""The safe contains a number of items,:
                 1.combat knife, 2.space spear , 3.riot shield , 4.general's mug, 5. nuclear lunch codes, 6. laser pen
 
                 you can choose ONE item!
-                            """)
+                                            """)
                 item = input("type a number>>  ")
                 if item == "1":
-                    inventory.append("combat knife")
+                    inventory_weapons.append("combat knife")
                 elif item == "2":
-                    inventory.append("space spear")
+                    inventory_weapons.append("space spear")
                 elif item == "3":
-                    inventory.append("riot shield")
+                    inventory_items.append("riot shield")
                 elif item == "4":
-                    inventory.append("general's mug")
+                    inventory_items.append("general's mug")
                 elif item == "5":
-                    inventory.append("nuclear lunch code")
+                    inventory_weapons.append("nuclear launch code")
                 elif item == "6":
-                    inventory.append("laser pen")
+                    inventory_items.append("laser pen")
+                break
             usrAttempts -= 1
         else:
             print("not attempts left")
@@ -286,6 +287,7 @@ You probabily have a lot on your mind, sorry for wasting.
 Please go through.
     """)
 
+
 def scene7():
     OPS = print("""
 You are in the OPS room, this room is filled with all sorts of mysterious 
@@ -312,7 +314,7 @@ what could be in any one of them.
 There's a computer in front of you which could have all the information about the
 being on there.""")
         first = input("Do you wish to use the computer?")
-#if first == "yes":
+# if first == "yes":
         def __init__(self, name, homeland, ability):
             self.name = name
             self.homeland = homeland
@@ -336,7 +338,7 @@ being on there.""")
         enemy.GetRandomWeapon()
 
         print("{} is from {} with the ability of {}".format(name, homeland, ability))
-#print(vars(enemy))
+# print(vars(enemy))
     print("""
 The one you're looking isn't here!
 The only thing left to do now is to capture a human as we can access their 
@@ -347,6 +349,7 @@ As you were searching the incubators a scientist comes in.
 This is the perfect chance to take a human and use them to your advantage.
 
 You approach the scientist and knock him out!""")
+
 
 def scene8_b1():
     print("""You can access a human's memories but they will fight back and 
@@ -367,8 +370,6 @@ In this species you have solve the anagram...""")
         print("Hint: It's an element")
         print(scene8())
 
-inventory2 = 0
-
 
 def scene8_b2():
     print("""You were able to take down the first barrier, but there is still
@@ -376,18 +377,27 @@ one more!
 
 In order to overcome this barrier you must choose one of items in front of you.
 I item you choose wil determine if can access their memories.""")
-    answer = input("Choose an item that you think is appropriate for this situation! ")
+    print("Everything you have collected to this point will decide if you can takedown the final barrier!"
+          "As the items you collected from the pyhsical world can be replicaed in the mind, in order to fight")
+    print(inventory)
+    choice = input("choose a weapon! ").lower()
+    if choice not in inventory:
+        print("dead")
+        exit()
+    else:
+        print("you reach down and pull the {} from your bag".format(choice))
+    if "taser" or "taser" or "plasma gun" or "combat knife" or "space spear" or "nuclear lunch code" or "laser pen" in choice:
+        scene8_b3()
+    elif "hazmat suit" or "keys" or "vest" or "hard drive" or "riot shield" or "general's mug" in choice:
+        print("""
+        the weapon is weak, the monster killed you!""")
 
-    if answer == "taser" or "plasma gun":
-        print("""You have chosen the path of weapons to fight this final barrier""")
-    elif answer == "hard drive" or "keys" or "vest" or "hazmat suit":
-        print("""You have chosen to defend your self in this battle. """)
 
-
-
-
-
-
+def scene8_b3():
+    print("""
+        you have picked the right weapon
+        
+        This means that you have weapon that can be used to """)
 
 scene4_right()
 scene8_b2()
