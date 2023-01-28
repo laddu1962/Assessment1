@@ -1,4 +1,5 @@
 # recuperar la criatura = reclaim the creature
+
 player_class = 0
 inventory_weapons = []
 inventory_items = []
@@ -50,10 +51,8 @@ it coming!
             print("You have selected the scientist")
     if player_class != 0:
         class_selection(player_class)
-    scene2()
 
 
-def scene2():
     print("""
 Now that's out of the way, make your way
 to Area 51, reclaim our fellow. 
@@ -62,45 +61,36 @@ You reach the gate of Area 51, and the soldier at the
 gate ask you a riddle..
              """)
 # riddles with 3 attempts
-    answer = "war"
-    usrAttempts = 3
+    while True:
+        answer = "war"
 
-    if choice == 1:
-        while usrAttempts > 0:
-            guess = input("Soldier fight it but never changes?")
-            if guess == answer:
-                print("gate opened")
-                break
-            usrAttempts -= 1
+        guess = input("Soldier fight it but never changes? ")
+        if guess == answer:
+            print("gate opened")
+            scene3()
         else:
-            print("he's waking up put him back under")
+            print("try again...")
 
-    answer = "newspaper"
-    usrAttempts = 3
+    while True:
+        answer = "newspaper"
 
-    if choice == 2:
-        while usrAttempts > 0:
-            guess = input("What is black, white and read all over?")
-            if guess == answer:
-                print("gate opened")
-                break
-            usrAttempts -= 1
+        guess = input("What is black, white and read all over? ")
+        if guess == answer:
+            print("gate opened")
+            scene3()
         else:
-            print("he's waking up put him back under")
+            print("try again...")
 
-    answer = "ice"
-    usrAttempts = 3
+    while True:
+        answer = "ice"
 
-    if choice == 3:
-        while usrAttempts > 0:
-            guess = input("How do you spell hard water with three letters?")
-            if guess == answer:
-                print("gate opened")
-                break
-            usrAttempts -= 1
+        guess = input("How do you spell hard water with three letters?")
+        if guess == answer:
+            print("gate opened")
+            scene3()
         else:
-            print("he's waking up put him back under")
-    scene3()
+            print("try again...")
+
 
 def scene3():
     print("""
@@ -200,7 +190,7 @@ option 2: walk straight into the room
 
     elif answer == "option 2":
         print("""
-The guards ask you stop and ask you why 
+The 2 guards ask you stop and ask you why 
 you didn't approach them first.
 As it is there job to open the door for you?
 Guard: 'Why are you not following protocol?'""")
@@ -228,7 +218,7 @@ that says 'OPS' """)
     if answer == 'yes':
         print("""There are only a few things in the testing is an 
 empty table, chair and a safe.""")
-        answer2 = input("Do you want to inspect the safe? ")
+        answer2 = input("Do you want to inspect the safe? yes or no? ")
 
     elif answer == 'no':
         print("""The only place left to go is the OPS room. """)
@@ -247,9 +237,9 @@ that you've seen.
             guess = input("type password")
             if guess == password:
                 print("""The safe contains a number of items,:
-                1.combat knife, 2.space spear , 3.riot shield , 4.general's mug, 5. nuclear lunch codes, 6. laser pen
+1.combat knife, 2.space spear , 3.riot shield , 4.general's mug, 5. nuclear lunch codes, 6. laser pen
 
-                you can choose ONE item!
+you can choose ONE item!
                                             """)
                 item = input("type a number>>  ")
                 if item == "1":
@@ -264,7 +254,6 @@ that you've seen.
                     inventory_weapons.append("nuclear launch code")
                 elif item == "6":
                     inventory_items.append("laser pen")
-                break
                 print("Now that done, the only place left to go is the OPS room")
                 scene6()
             usrAttempts -= 1
@@ -296,7 +285,7 @@ Please go through.
     """)
     scene7()
 
-
+import random
 def scene7():
     OPS = print("""
 You are in the OPS room, this room is filled with all sorts of mysterious 
@@ -358,6 +347,7 @@ As you were searching the incubators a scientist comes in.
 This is the perfect chance to take a human and use them to your advantage.
 
 You approach the scientist and knock him out!""")
+    scene8_b1()
 
 
 def scene8_b1():
@@ -365,44 +355,39 @@ def scene8_b1():
 the way they do it differs from species to species. 
 
 In this species you have solve the anagram...""")
+    while True:
+        answer = "carbon"
 
-    answer = "carbon"
-    usrAttempts = 3
-
-    while usrAttempts > 0:
         guess = input("Decipher 'barcon':  ")
         if guess == answer:
             print("That's one barrier!")
-            break
-        usrAttempts -= 1
-    else:
-        print("Hint: It's an element")
-    scene8_b2()
+            scene8_b2()
+        else:
+            print("Hint: It's an element")
+
 
 
 def scene8_b2():
     print("""You were able to take down the first barrier, but there is still
 one more!
 
-In order to overcome this barrier you must choose one of items in front of you.
-I item you choose wil determine if can access their memories.""")
-    print("Everything you have collected to this point will decide if you can takedown the final barrier!"
-          "As the items you collected from the pyhsical world can be replicaed in the mind, in order to fight")
-    print(inventory)
+In order to overcome this barrier you must choose one of item you have collected!.
+I item you have wil determine if you can fully access their memories.
+
+As the items you collected from the physical world can be replicated in the mind, in order to fight
+""")
+    print(inventory_weapons)
+    print(inventory_items)
     choice = input("choose a weapon! ").lower()
-    if choice not in inventory_weapons:
-        print("dead")
-        exit()
-    else:
-        print("you reach down and pull the {} from your bag".format(choice))
-    if "taser" or "taser" or "plasma gun" or "combat knife" or "space spear" or "nuclear lunch code" or "laser pen" in choice:
+    if choice in inventory_weapons:
         scene8_b3()
-    elif "hazmat suit" or "keys" or "vest" or "hard drive" or "riot shield" or "general's mug" in choice:
+    elif choice not in inventory_weapons:
         print("""
-        you don't have the right items to help you defeat his mind!
-        
-        
-            YOU'RE DEAD!""")
+            you don't have the right items to help you defeat his mind!
+
+
+                YOU'RE DEAD!""")
+
 
 
 def scene8_b3():
@@ -422,9 +407,12 @@ def scene8_b3():
         
         Major Ray:'Let's make one thing clear you will never escape area 51 nor will I allow
         anyone to break you out!'""")
+    end()
 
 
-scene1()
+
+
+
 
 
 
