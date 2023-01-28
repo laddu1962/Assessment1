@@ -61,35 +61,36 @@ You reach the gate of Area 51, and the soldier at the
 gate ask you a riddle..
              """)
 # riddles with 3 attempts
-    while True:
-        answer = "war"
+    if choice == 1:
+        while True:
+            answer = "war"
 
-        guess = input("Soldier fight it but never changes? ")
-        if guess == answer:
-            print("gate opened")
-            scene3()
-        else:
-            print("try again...")
+            guess = input("Soldier fight it but never changes? ")
+            if guess == answer:
+                print("gate opened")
+                scene3()
+            else:
+                print("try again...")
+    if choice == 2:
+        while True:
+            answer = "newspaper"
 
-    while True:
-        answer = "newspaper"
+            guess = input("What is black, white and read all over? ")
+            if guess == answer:
+                print("gate opened")
+                scene3()
+            else:
+                print("try again...")
+    if choice == 3:
+        while True:
+            answer = "ice"
 
-        guess = input("What is black, white and read all over? ")
-        if guess == answer:
-            print("gate opened")
-            scene3()
-        else:
-            print("try again...")
-
-    while True:
-        answer = "ice"
-
-        guess = input("How do you spell hard water with three letters?")
-        if guess == answer:
-            print("gate opened")
-            scene3()
-        else:
-            print("try again...")
+            guess = input("How do you spell hard water with three letters?")
+            if guess == answer:
+                print("gate opened")
+                scene3()
+            else:
+                print("try again...")
 
 
 def scene3():
@@ -389,7 +390,6 @@ As the items you collected from the physical world can be replicated in the mind
                 YOU'RE DEAD!""")
 
 
-
 def scene8_b3():
     print("""
         you have picked the right weapon
@@ -409,6 +409,7 @@ def scene8_b3():
         anyone to break you out!'""")
     end()
 
+scene1()
 
 
 
