@@ -152,20 +152,30 @@ right is an equipment locker.""")
 
     if answer == 'yes':
         print("""You open the equipment locker. Within the locker is:
-a hazmat suit, keys, a taser, plasma gun, vest, a hard drive
+1. hazmat suit, 2. keys, 3. taser, 4. plasma gun, 5. vest, 6. hard drive
 
 you can choose ONE item!
             """)
-        length = 1
-        for idx in range(length):
-            item = input("What item do you want to take?  ")
-            inventory.append(item)
+        item = input("type a number>>  ")
+        if item == "1":
+            inventory.append("hazmat suit")
+        elif item == "2":
+            inventory.append("keys")
+        elif item == "3":
+            inventory.append("taser")
+        elif item == "4":
+            inventory.append("plasma gun")
+        elif item == "5":
+            inventory.append("vest")
+        elif item == "6":
+            inventory.append("hard drive")
 
         pockets = print(inventory)
     print("Now the only way you can go is left.")
 
 
 def scene4_left():
+
     print("""You have to appproach to guards. You have to be very cautious
 with your actions and words, as your cover could be easily blown!
     
@@ -230,6 +240,24 @@ that you've seen.
             if guess == password:
                 print("safe opened")
                 break
+                print("""The safe contains a number of items,:
+                1.combat knife, 2.space spear , 3.riot shield , 4.general's mug, 5. nuclear lunch codes, 6. laser pen
+
+                you can choose ONE item!
+                            """)
+                item = input("type a number>>  ")
+                if item == "1":
+                    inventory.append("combat knife")
+                elif item == "2":
+                    inventory.append("space spear")
+                elif item == "3":
+                    inventory.append("riot shield")
+                elif item == "4":
+                    inventory.append("general's mug")
+                elif item == "5":
+                    inventory.append("nuclear lunch code")
+                elif item == "6":
+                    inventory.append("laser pen")
             usrAttempts -= 1
         else:
             print("not attempts left")
@@ -343,12 +371,19 @@ inventory2 = 0
 
 
 def scene8_b2():
-    print("you are about to fight")
+    print("""You were able to take down the first barrier, but there is still
+one more!
 
-    if "taser" or "plasma gun" in inventory:
-        print("you have a chance")
-    elif "hard drive" or "keys" or "vest" or "hazmat suit" in inventory:
-        print("you don't have a weapon!")
+In order to overcome this barrier you must choose one of items in front of you.
+I item you choose wil determine if can access their memories.""")
+    answer = input("Choose an item that you think is appropriate for this situation! ")
+
+    if answer == "taser" or "plasma gun":
+        print("""You have chosen the path of weapons to fight this final barrier""")
+    elif answer == "hard drive" or "keys" or "vest" or "hazmat suit":
+        print("""You have chosen to defend your self in this battle. """)
+
+
 
 
 
