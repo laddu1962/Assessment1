@@ -411,8 +411,7 @@ Agent: 'He's waking up, put him back under, start him from the guards.'
     print(inventory_weapons)
     print(inventory_items)
 # if you didn't select any items or weapons on the way you automatically loose and die
-    choice = input("type a single weapon or item that you have in your inventory ").lower()
-
+    choice = input("type a single weapon or item that you have in your inventory... ").lower()
     if choice in inventory_weapons:
         scene8_b3()  # if the player had picked up a weapon from the previous spots then the player will win
         quit()
