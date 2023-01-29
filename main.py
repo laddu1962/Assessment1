@@ -9,11 +9,9 @@ inventory1 =["ID","Wallet","Keys","Pen"]
 # beginning of the game and the start text
 def scene1():
     start = print("""
-WAKE UP! WAKE UP! WAKE UP!
-You've been asleep for long enough!
-We have a lot of questions to ask!
-If you want to see your friend again, you're going to answer me.
-How did you break into Area 51?
+WAKE UP! WAKE UP! WAKE UP! 
+You've been asleep for long enough! We have a lot of questions to ask!
+If you want to see your friend again, you're going to answer me. How did you break into Area 51?
          
 The screen fades to black...
          
@@ -22,30 +20,31 @@ The bodies:
 1. soldier 
 2. agent 
 3. scientist
-You have to chose one so you can transform into them,
-meaning you will become on of those humans, each which hold a 
-different rank. 
+You have to choose one so you can transform into them,
+meaning you will become on of those humans, each which hold a different rank. 
          
 Your mission is to infiltrate the humans base and reclaim our fellow,
-from their prison. You do this by becoming on of them. They won't see 
-it coming!
-         """)
+from their captives. You do this by becoming on of them. They won't see it coming!
+""")
 
 # the character selection for the player through number input
     while True:
-        choice = int(input("Which human are you going to choose, type the number? "))
-        if choice == 1:
-            player_class = 1
-            break
-        elif choice == 2:
-            player_class = 2
-            break
-        elif choice == 3:
-            player_class = 3
-            break
-        else:
-            print("not valid")
-        continue
+        try:
+            choice = int(input("Which human are you going to choose?, type the number here.. "))
+            if choice == 1:
+                player_class = 1
+                break
+            elif choice == 2:
+                player_class = 2
+                break
+            elif choice == 3:
+                player_class = 3
+                break
+            elif ValueError:
+                print("no")
+        except ValueError:
+            print("That is not a number!")
+            continue
 
 # telling the player which character they chose, three character types
     def class_selection(x):
@@ -71,40 +70,40 @@ gate ask you a riddle..
         while True:
             answer = "war"
 # call back the number from the input to decide which riddle the player will get
-            guess = input("Soldier fight it but never changes? ")
+            guess = input("Soldier fight it but never changes? ").lower()
             if guess == answer:
                 print("gate opened")
                 scene3()
             else:
-                print("try again...")
+                print("Hint: another word for battle")
 # riddles for the agent option
     if choice == 2:
         while True:
             answer = "newspaper"
 
-            guess = input("What is black, white and read all over? ")
+            guess = input("What is black, white and at your door step? ").lower()
             if guess == answer:
-                print("gate opened")
+                print("contains information")
                 scene3()
             else:
-                print("try again...")
+                print("Hint: it has various information on it")
 # riddle for the scientist option
     if choice == 3:
         while True:
             answer = "ice"
 
-            guess = input("How do you spell hard water with three letters?")
+            guess = input("How do you spell hard water with three letters? ").lower()
             if guess == answer:
                 print("gate opened")
                 scene3()
             else:
-                print("try again...")
+                print("Hint: related to the three of matter")
 
 
 def scene3():
     print("""
 You enter area 51, but there is another barrier in front of you
-You have to solve 3 questions in order to enter the main building!
+You have to solve 3 questions in a row to enter the main building!
          
          """)
 # safe cracker
@@ -121,14 +120,16 @@ You have to solve 3 questions in order to enter the main building!
 # if it is the right input these methods will carry out
     while codes_cracked < len(safe_code):
         for code in safe_code:
-            print("enter number, that divide to %d" % code)
+            print("enter 2 number, that divide by each other to give %d" % code)
             try:
-                guess = float(input("type 1st number"))
-                guess1 = float(input("type 2nd number"))
+                guess = float(input("type 1st number "))
+                guess1 = float(input("type 2nd number "))
                 result = round(guess / guess1)
                 if result == code:
                     print("correct")
                     codes_cracked += 1
+                elif result != code:
+                    print("that's not right")
 # it is a letter then this will print
             except ValueError:
                 print("That is not the number")
@@ -150,6 +151,7 @@ You can go right or left...
     elif answer == "left":
         scene4_left()
 
+
 # different scenes for different directions
 def scene4_right():
     print("""To your right is the laboratory,
@@ -162,7 +164,7 @@ right is an equipment locker.""")
 1. hazmat suit, 2. keys, 3. taser, 4. plasma gun, 5. vest, 6. hard drive
 
 you can choose ONE item!
-            """) # there are two lists thus a longer list.append
+            """)  # there are two lists thus a longer list.append
         item = input("type a number>>  ")
         if item == "1":
             inventory_items.append("hazmat suit")
@@ -197,13 +199,13 @@ Do you wish to
 option 1: approach to the guard first
 option 2: walk straight into the room
     """)
-    answer = input("which option do you choose?")
+    answer = input("which option do you choose? ").lower()
 # the player gets two options and this a trick question, to rise suspicion
-    if answer == "1":
+    if answer == "1" or "option 1":
         print("The guards just say hello and open the door for you.")
         scene5()
 # if option 2 is selected then the player's inventory/ pockets will be printed.
-    elif answer == "2":
+    elif answer == "2" or "option 2":
         print("""
 The 2 guards ask you stop and ask you why 
 you didn't approach them first.
@@ -228,7 +230,7 @@ In the room is a chair, table and a safe.
 Also ahead of you is another room which has a sign
 that says 'OPS' """)
 # this is the next room the player enters, again giving them two options
-    answer = input("Do you want to inpsect anything in the room? yes or no? ")
+    answer = input("Do you want to inpsect anything in the room? yes or no? ").lower()
 # the player is asked if they want to inspect anything
     if answer == 'yes':
         print("""There are only a few things in the testing is an 
@@ -249,7 +251,7 @@ that you've seen.
         usrAttempts = 3
 # the player will get three attempts to solving the code
         while usrAttempts > 0:
-            guess = input("type password")
+            guess = input("type password" )
             if guess == password:
                 print("""The safe contains a number of items,:
 1.combat knife, 2.space spear , 3.riot shield , 4.general's mug, 5. nuclear lunch codes, 6. laser pen
@@ -274,7 +276,8 @@ you can choose ONE item!
             usrAttempts -= 1
         else:
             print("try again")
-
+    else:
+        scene5()
 
 # more trick question for the player and to throw in more suspision for the player
 def scene6():
@@ -291,7 +294,7 @@ Moppy and Bucket are inseparable, always on duty
 together. 
     
 Sorry for wasting your time, have a good day sir""")
-    elif answer == "":
+    else:
         print("""Are you sure, I was just teasing! I'm sure I saw 
 Moppy and Bucket guarding the door this morning.
     
@@ -300,19 +303,19 @@ Please go through.
     """)
     scene7()
 
+
 import random
 def scene7():
     OPS = print("""
-You are in the OPS room, this room is filled with all sorts of mysterious 
-things! Of all the things that could be in a room it was was other aliens,
-but all of them in incubators, kept alive by machines. With no signs to 
-show if any of them were alive. 
+You are in the OPS room, this room is filled with all sorts of mysterious things! 
+Of all the things that could be in a room it was was other aliens, but all of them in incubators,
+kept alive by machines. With no signs to show if they were alive. 
 
 The room is filled with all sorts of machines and a spot in the room in 
 the corner for cutting them open. You should look around to see if your 
 fellow is in one of these incubators!  
 
-There are 5 incubators and you should search all of them! You never know
+There are 4 incubators and you should search all of them! You never know
 what could be in any one of them. 
 """)
 # this is to randomly generate different aliens, so everytime the player checks the computer it randomisess the aliens
@@ -326,8 +329,10 @@ what could be in any one of them.
 # through the use of class different alien types are created and printed for the player
         print("""
 There's a computer in front of you which could have all the information about the
-being on there.""")
-        first = input("Do you wish to use the computer?")
+being on there.
+
+You go to the computer and look for the information on the aliens and it show you...
+""")
 # once the player says yes to use the computer the method will run and create 4 differnt alien types
         def __init__(self, name, homeland, ability):
             self.name = name
@@ -374,12 +379,14 @@ In this species you have solve the anagram...""")
     while True:
         answer = "carbon"
 # this is anagram the player has to solve and this is doen by the while loop
-        guess = input("Decipher 'barcon':  ")
+        guess = input("Decipher 'barcon':  ").lower()
         if guess == answer:
             print("That's one barrier!")
             scene8_b2()
+            break
         else:
             print("Hint: It's an element")
+            break
 # oen the player gets the answer wrong, a hint is given to the player to help
 
 
@@ -388,34 +395,40 @@ def scene8_b2():
 one more!
 
 In order to overcome this barrier you must choose one of item you have collected!.
-I item you have wil determine if you can fully access their memories.
+The item you have wil determine if you can fully access their memories.
 
 As the items you collected from the physical world can be replicated in the mind, in order to fight
 """)  # the end of the is where the player's inventory is printed, and then it will decide if player wins or loops
+    if len(inventory_weapons) == 0:
+        print("""
+You didn't pick up any weapons so you won't win the fight ahead!
+
+
+Agent: 'He's waking up, put him back under, start him from the guards.'
+""")
+        scene4_left()
+
     print(inventory_weapons)
     print(inventory_items)
-    choice = input("choose a weapon! ").lower()
+# if you didn't select any items or weapons on the way you automatically loose and die
+    choice = input("type a single weapon or item that you have in your inventory ").lower()
+
     if choice in inventory_weapons:
         scene8_b3()  # if the player had picked up a weapon from the previous spots then the player will win
-    elif inventory_weapons == 0:
-        print("""
-                    you don't have the right items to help you defeat his mind!
-
-
-                        YOU'RE DEAD!""")
+        quit()
     elif choice not in inventory_weapons:
         print("""
-            you don't have the right items to help you defeat his mind!
+You don't have the right items to help you defeat his mind!
 
 
-                YOU'RE DEAD!""")
-
+Agent: 'He's wakeing up, put him back under, start him from the guards.'
+        """)
 # if the player chose no items or chose not to go there at all it means no weapons to fight or progess to the end
 
 def scene8_b3():
     print("""
         you have picked the right weapon
-        This gives you an advantage while you are in their mind and there
+        This gives you an advantage while you are in their mind!
         
         You have successfully accessed their memories. As you look through their 
         memories you try to find your fellow but there seems to be nothing about him!
@@ -430,5 +443,7 @@ def scene8_b3():
         Major Ray:'Let's make one thing clear you will never escape area 51 nor will I allow
         anyone to break you out!'""")
     quit()
+# ending when the player has a weapon
+
 
 scene1()
